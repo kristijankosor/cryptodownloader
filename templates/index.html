@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crypto Excel Downloader</title>
+    <style>
+        body { font-family: sans-serif; padding: 2rem; max-width: 600px; margin: auto; text-align: center; }
+        input[type="text"], input[type="number"] {
+            padding: 10px;
+            font-size: 1rem;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            margin-top: 10px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .message { margin-top: 20px; font-size: 1.1rem; color: red; }
+    </style>
+</head>
+<body>
+    <h1>Download Crypto Excel</h1>
+    <form method="get" action="/download">
+        <div>
+            <input type="text" name="coin" placeholder="Coin Symbol (e.g., BTC)" required>
+        </div>
+        <div>
+            <input type="number" name="days" placeholder="Number of Days (e.g., 1825)" min="1" value="1825" required>
+        </div>
+        <button type="submit">Download</button>
+    </form>
+
+    {% if message %}
+    <div class="message">{{ message }}</div>
+    {% endif %}
+</body>
+</html>
